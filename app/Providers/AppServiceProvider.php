@@ -23,9 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Passport::$keyPath = storage_path(); // cấu hình đường dẫn mặc định
+
+    // Thêm cấu hình nếu cần
         // Passport::loadKeysFrom(__DIR__.'/../secrets/oauth');
         Passport::tokensExpireIn(CarbonInterval::days(15));
         Passport::refreshTokensExpireIn(CarbonInterval::days(30));
+        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+
     }
 
     public function register(): void

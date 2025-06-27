@@ -121,8 +121,6 @@
                 const result = await response.json();
                 if (response.ok) {
                     localStorage.setItem('token', result.access_token);
-                    console.log(localStorage.getItem('token'));
-                    alert('Login successful!');
                     window.location.href = '/dashboardPage';
                 } else {
                     alert(result.error || 'Login failed.');
