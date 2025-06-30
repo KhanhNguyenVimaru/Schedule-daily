@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TasksController;
+use App\Http\Controllers\TaskByDayController;
 use Illuminate\Console\View\Components\Task;
 
 // UI
@@ -22,3 +23,5 @@ Route::middleware('auth:api')->post('/logout', [AuthController::class, 'logout']
 Route::post('/newTask', [TasksController::class, 'store'])->name('task.insert');
 Route::delete('/delete/{id}', [TasksController::class, 'destroy'])->name('task.delete');
 Route::patch('/update/{id}', [TasksController::class, 'update'])->name('task.update');
+
+
